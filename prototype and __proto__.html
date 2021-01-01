@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {}
+      console.log(Person.prototype)
+
+      const person1 = new Person()
+      console.log(person1.__proto__)
+
+      console.log(Person.prototype === person1.__proto__) // true
+
+      // 所有函数的 prototype 都默认是 Object 的实例（Object除外）
+      // 实例对象的 __proto__ === 构造函数的 prototype 
+      console.log(Person.prototype.__proto__ === Object.prototype) // true
+      console.log(Object.prototype.__proto__) // null
+
+      // person1 {
+      //   a: 1,
+      //   __proto__: Person.prototype = {
+      //     b: 2,
+      //     __proto__: Object.prototype = {
+      //       c: 3,
+      //       __proto__: null
+      //     } 
+      //   }
+      // }
+
+      console.log(Person.prototype);
+    </script>
+  </body>
+</html>
